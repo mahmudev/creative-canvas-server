@@ -120,7 +120,7 @@ async function run() {
       res.send(result);
     });
 
-    app.patch("/update-classes/:id",verifyJWT, verifyAdmin, async (req, res) => {
+    app.patch("/update-classes/:id",verifyJWT, async (req, res) => {
       const result = await classCollection.updateOne({ _id: new ObjectId(req.params.id) }, {
       $set: { status:  req.body.status}});
       res.send(result);
