@@ -70,7 +70,7 @@ async function run() {
       res.send(result);
     });
 
-    app.get("/all-users", verifyJWT, verifyAdmin, async (req, res) => {
+    app.get("/all-users", verifyJWT, async (req, res) => {
       const result = await usersCollection.find().toArray();
       res.send(result);
     });
